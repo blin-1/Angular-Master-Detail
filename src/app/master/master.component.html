@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<h2>Master</h2>
+<table>
+  <thead>
+    <tr>           
+      <th *ngFor="let header of headers">{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detail of details" (click)="onSelect(detail)">        
+      <td>
+         {{detail.id}}
+      </td>
+      <td>
+         {{detail.value}}
+      </td>      
+    </tr>
+  </tbody>
+</table>
+
+<h2>Details </h2>
+<app-detail [detail]="selectedDetail" ></app-detail>
