@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<h2>Master</h2>
+<h2>Parent Component</h2>
+{{ childMessage }}
+<h4> Click on a row to show in Detail Component</h4>
 <table>
   <thead>
     <tr>           
@@ -7,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let detail of details" (click)="onSelect(detail)">        
+    <tr *ngFor="let detail of details" (click)="onDetailSelect(detail)">        
       <td>
          {{detail.id}}
       </td>
@@ -18,5 +20,8 @@
   </tbody>
 </table>
 
-<h2>Details </h2>
-<app-detail [detail]="selectedDetail" ></app-detail>
+<h2>Child Component</h2>
+<app-detail [detail]="selectedDetail"
+          (detailDispatched)="onDetailDispatched($event)"       
+            >
+</app-detail>
